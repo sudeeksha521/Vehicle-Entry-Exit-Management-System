@@ -1,0 +1,869 @@
+{
+  "info": {
+    "_postman_id": "582e8f63-7af6-4724-8799-1df3fd0e2d89",
+    "name": "Vehicle Entry Exit Management System",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "60372721",
+    "_collection_link": "https://go.postman.co/collection/60372721-582e8f63-7af6-4724-8799-1df3fd0e2d89?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sudeeksha",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "Kovuri@11",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehicles/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehicles",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get All Vehicles",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/vehicles/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "vehicles",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 08:40:50 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "262"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"id\": 1,\n    \"vehicle_number\": \"TG08AQ6733\",\n    \"vehicle_type\": \"CAR\",\n    \"owner_name\": \"Ramesh\",\n    \"created_at\": \"2026-11-22T05:15:07.933150Z\"\n  },\n  {\n    \"id\": 2,\n    \"vehicle_number\": \"AP29AQ6708\",\n    \"vehicle_type\": \"TWO_WHEELER\",\n    \"owner_name\": \"Sowmith K\",\n    \"created_at\": \"2026-11-23T08:18:35.625330Z\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "postman-echo.com/post",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Register New Vehicle",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Register New Vehicle",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vehicle_number\": \"TS10AB1234\",\r\n  \"vehicle_type\": \"CAR\",\r\n  \"owner_name\": \"Test Owner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/vehicles/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "vehicles",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 08:54:14 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "128"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 3,\n  \"vehicle_number\": \"TS10AB1234\",\n  \"vehicle_type\": \"CAR\",\n  \"owner_name\": \"Test Owner\",\n  \"created_at\": \"2026-11-24T08:54:14.359383Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Vehicle Details",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Get Vehicle Details",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/vehicles/3/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "vehicles",
+                "3",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 08:56:36 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "128"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 3,\n  \"vehicle_number\": \"TS10AB1234\",\n  \"vehicle_type\": \"CAR\",\n  \"owner_name\": \"Test Owner\",\n  \"created_at\": \"2026-11-24T08:54:14.359383Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Vehicle",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Update Vehicle",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"vehicle_number\": \"TS10AB1234\",\r\n    \"vehicle_type\": \"CAR\",\r\n    \"owner_name\": \"Updated Owner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/vehicles/3/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "vehicles",
+                "3",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:00:00 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "131"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 3,\n  \"vehicle_number\": \"TS10AB1234\",\n  \"vehicle_type\": \"CAR\",\n  \"owner_name\": \"Updated Owner\",\n  \"created_at\": \"2026-11-24T08:54:14.359383Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Entry",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Vehicle Entry",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"vehicle_number\": \"TS10CD5678\",\r\n    \"vehicle_type\": \"CAR\",\r\n    \"driver_name\": \"Ramesh\",\r\n    \"driver_mobile\": \"9876543210\",\r\n    \"purpose\": \"MATERIAL_DELIVERY\",\r\n    \"vendor_name\": \"ABC Suppliers\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/entries/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "entries",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:01:53 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "253"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 4,\n  \"driver_name\": \"Ramesh\",\n  \"driver_mobile\": \"9876543210\",\n  \"vendor_name\": \"ABC Suppliers\",\n  \"purpose\": \"MATERIAL_DELIVERY\",\n  \"entry_time\": \"2026-11-24T09:01:53.679991Z\",\n  \"exit_time\": null,\n  \"status\": \"INSIDE\",\n  \"created_at\": \"2026-11-24T09:01:53.679991Z\",\n  \"vehicle\": 4\n}"
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Exit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Vehicle Exit",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/entries/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "entries",
+                ""
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:04:32 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "213"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"vehicle_number\": [\n    \"This field is required.\"\n  ],\n  \"vehicle_type\": [\n    \"This field is required.\"\n  ],\n  \"driver_name\": [\n    \"This field is required.\"\n  ],\n  \"driver_mobile\": [\n    \"This field is required.\"\n  ],\n  \"purpose\": [\n    \"This field is required.\"\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Entry History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Entry History",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/entries/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "entries",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:06:00 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1092"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"id\": 4,\n    \"driver_name\": \"Ramesh\",\n    \"driver_mobile\": \"9876543210\",\n    \"vendor_name\": \"ABC Suppliers\",\n    \"purpose\": \"MATERIAL_DELIVERY\",\n    \"entry_time\": \"2026-11-24T09:01:53.679991Z\",\n    \"exit_time\": \"2026-11-24T09:03:53.492848Z\",\n    \"status\": \"EXITED\",\n    \"created_at\": \"2026-11-24T09:01:53.679991Z\",\n    \"vehicle\": 4\n  },\n  {\n    \"id\": 3,\n    \"driver_name\": \"Ramesh\",\n    \"driver_mobile\": \"9876543210\",\n    \"vendor_name\": \"ABC Suppliers\",\n    \"purpose\": \"MATERIAL_DELIVERY\",\n    \"entry_time\": \"2026-11-22T08:25:24.563709Z\",\n    \"exit_time\": null,\n    \"status\": \"INSIDE\",\n    \"created_at\": \"2026-11-22T08:25:24.563709Z\",\n    \"vehicle\": 1\n  },\n  {\n    \"id\": 2,\n    \"driver_name\": \"Ramesh\",\n    \"driver_mobile\": \"9876543210\",\n    \"vendor_name\": \"ABC Suppliers\",\n    \"purpose\": \"MATERIAL_DELIVERY\",\n    \"entry_time\": \"2026-11-22T08:19:22.004686Z\",\n    \"exit_time\": \"2026-11-22T08:23:38.655375Z\",\n    \"status\": \"EXITED\",\n    \"created_at\": \"2026-11-22T08:19:22.004686Z\",\n    \"vehicle\": 1\n  },\n  {\n    \"id\": 1,\n    \"driver_name\": \"Ramesh\",\n    \"driver_mobile\": \"9876543210\",\n    \"vendor_name\": \"ABC Suppliers\",\n    \"purpose\": \"MATERIAL_DELIVERY\",\n    \"entry_time\": \"2026-11-22T05:35:05.656191Z\",\n    \"exit_time\": \"2026-11-22T05:44:59.358416Z\",\n    \"status\": \"EXITED\",\n    \"created_at\": \"2026-11-22T05:35:05.656191Z\",\n    \"vehicle\": 1\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Inside",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Vehicle Inside",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/entries/inside/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "entries",
+                "inside",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:09:32 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "285"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"total_inside\": 1,\n  \"vehicles\": [\n    {\n      \"id\": 3,\n      \"driver_name\": \"Ramesh\",\n      \"driver_mobile\": \"9876543210\",\n      \"vendor_name\": \"ABC Suppliers\",\n      \"purpose\": \"MATERIAL_DELIVERY\",\n      \"entry_time\": \"2026-11-22T08:25:24.563709Z\",\n      \"exit_time\": null,\n      \"status\": \"INSIDE\",\n      \"created_at\": \"2026-11-22T08:25:24.563709Z\",\n      \"vehicle\": 1\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Daily Report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Daily Report",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/reports/daily/?date=2026-11-24",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "reports",
+                "daily",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "2026-11-24"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Tue, 24 Nov 2026 09:10:56 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.1"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "76"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"date\": \"2026-11-24\",\n  \"total_entries\": 1,\n  \"total_exits\": 1,\n  \"currently_inside\": 1\n}"
+        }
+      ]
+    }
+  ]
+}
